@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Code_Breaker.Scoreboard">
+    <ContentPage.Content>
+
+        <StackLayout HorizontalOptions="CenterAndExpand">
+
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <!--Back button-->
+                <Button x:Name="btnBack" Grid.Column="0" Text="Back" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="Gray" BorderColor="Black" Clicked="BtnBack_Clicked"/>
+
+                <!--Label-->
+                <Label Text="Scoreboard" Grid.Column="1" VerticalOptions="Start"  HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold" FontFamily="Rockwell"/>
+
+                <!--Empty column to center the label-->
+
+
+            </Grid>
+
+            <!--Scores Frame-->
+            <Frame BorderColor="Black" BackgroundColor="White" Margin="10" HorizontalOptions="Center" Padding="5">
+                <!--Scores-->
+                <Grid x:Name="GridScores" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <!--6 columns-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <!--Column Labels-->
+                    <Label Grid.Row="0" Grid.Column="0" Text="Started" FontSize="Micro" FontAttributes="Italic" HorizontalOptions="Center"/>
+                    <Label Grid.Row="0" Grid.Column="1" Text="Ended" FontSize="Micro" FontAttributes="Italic" HorizontalOptions="Center"/>
+                    <Label Grid.Row="0" Grid.Column="2" Text="Guesses" FontSize="Micro" FontAttributes="Italic" HorizontalOptions="Center"/>
+                    <Label Grid.Row="0" Grid.Column="3" Text="Win?" FontSize="Micro" FontAttributes="Italic" HorizontalOptions="Center"/>
+                    <Label Grid.Row="0" Grid.Column="4" Text="Last Guess" FontSize="Micro" FontAttributes="Italic" HorizontalOptions="Center"/>
+                    <Label Grid.Row="0" Grid.Column="5" Text="Code" FontSize="Micro" FontAttributes="Italic" HorizontalOptions="Center"/>
+
+                    <!--Populated dynamically in C#-->
+                </Grid>
+            </Frame>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

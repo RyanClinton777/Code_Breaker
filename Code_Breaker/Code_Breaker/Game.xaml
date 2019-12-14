@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Code_Breaker.Game">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <!--Back button-->
+                <Button x:Name="btnBack" Grid.Column="0" Text="Back" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="Gray" BorderColor="Black" Clicked="BtnBack_Clicked"/>
+
+                <!-- Top label -->
+                <Label Text="Break The Code" Grid.Column="1"  VerticalOptions="Start"  HorizontalOptions="Center" FontAttributes="Bold" FontFamily="Rockwell" />
+
+                <!--"High score" label, text is set dynamically-->
+                <Label x:Name="lblHighScore" Grid.Column="2" VerticalOptions="Start" HorizontalOptions="End" FontFamily="Rockwell" />
+            </Grid>
+
+            <!-- This frame will contain the Code display, which will be covered with a canvas until it is revealed via game over or correct guess -->
+            <Frame x:Name="FrameCode" HorizontalOptions="Center" BorderColor="Black" BackgroundColor="White" Padding="10">
+                <!--Label to display the code-->
+                <!--Supposed to use canvas to hide it while game in progress, don't know how to do this, will instead just show '?'-->
+                <Label x:Name="lblCode" Text="? ? ? ?" HorizontalOptions="Center" VerticalOptions="Start" FontAttributes="Bold" />
+            </Frame>
+            <!--End code display frame-->
+
+            <!--Frame where the user enters their guess. Contains a label, four text entry things, and a button
+            We surround it with a frame so we can add a border, we can't put everything in the frame bc frames can only contain 1 child.-->
+            <Frame x:Name="FrameGuess" BorderColor="black" HorizontalOptions="Center" BackgroundColor="White">
+                <StackLayout x:Name="SLGuessEntry" 
+                   HorizontalOptions="Center"
+                  >
+
+                    <!--Label-->
+                    <Label Text="Your Guess:" 
+                       HorizontalOptions="Start"
+                       VerticalOptions="Start" />
+
+                    <!--We will use this stack layout to have the four text entry things next to eachother. Could also use a 1x4 grid, whatever you find easier -->
+                    <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                        <!--Entry is the element we use to get inputs from user, we define placeholder and type of keyboard that pops up, we want numbers here so we use Numeric.-->
+                        <!--NumEntry_TextChanged is used for input validation -->
+                        <!--Entry 1-->
+                        <Entry x:Name="numEntry1" Placeholder="2" Keyboard="Numeric" TextChanged="NumEntry_TextChanged"/>
+                        <!--Entry 2-->
+                        <Entry x:Name="numEntry2" Placeholder="2" Keyboard="Numeric" TextChanged="NumEntry_TextChanged"/>
+                        <!--Entry 3-->
+                        <Entry x:Name="numEntry3" Placeholder="2" Keyboard="Numeric" TextChanged="NumEntry_TextChanged"/>
+                        <!--Entry 4-->
+                        <Entry x:Name="numEntry4" Placeholder="2" Keyboard="Numeric" TextChanged="NumEntry_TextChanged"/>
+                    </StackLayout>
+
+                    <!--"Enter Guess" Button-->
+                    <!--To auto generate handlers, do clicked="", start typing and click "new event handler" when it shows up-->
+                    <Button x:Name="btnEnterGuess" Text="Enter Guess" HorizontalOptions="Fill" Clicked="BtnEnterGuess_Clicked" BackgroundColor="LightGray" BorderColor="Black"/>
+                </StackLayout>
+            </Frame>
+            <!--End guess frame-->
+
+            <!--Previous Guesses Frame-->
+            <Frame x:Name="FramePreviousGuesses" HorizontalOptions="Center" BorderColor="Black" BackgroundColor="White">
+                <!--Vertical Stack layout-->
+                <StackLayout x:Name="SLPreviousGuesses">
+                    <!--Label, added in C# code in NewGame() method-->
+                    <!--<Label Text="Previous Guesses:" 
+                       HorizontalOptions="Start"
+                       VerticalOptions="Start" />-->
+
+                    <!--up to 5 horizontal stack layouts to hold the previous guesses will be added with c# code as bad incorrect guesses are made.-->
+
+                    <!--TEST GUESS FOR DEBUGGING-->
+                    <!--<StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                    -->
+                    <!--Label-->
+                    <!--
+                    <Label Text="Guess 1: 1 2 3 4" HorizontalOptions="Start" FontSize="Large"/>
+                    -->
+                    <!--Coloured box based on accuracy of guess-->
+                    <!--
+                    <BoxView  Color="Green" />
+                </StackLayout>-->
+
+                </StackLayout>
+                <!--end SLPreviousGuesses-->
+            </Frame>
+            <!--End Previous Guesses Frame-->
+
+            <Frame x:Name="FrameNewGame" HorizontalOptions="Center" BorderColor="Black" BackgroundColor="White">
+                <Button x:Name="btnNewGame" Text="New Game" Clicked="BtnNewGame_Clicked" BorderColor="Black"/>
+            </Frame>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

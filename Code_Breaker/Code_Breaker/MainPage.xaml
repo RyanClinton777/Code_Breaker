@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Code_Breaker"
+             x:Class="Code_Breaker.MainPage">
+
+    <Grid x:Name="SLContentPage" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Text="Code Guesser" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" FontFamily="Rockwell" Margin="10" FontAttributes="Bold"/>
+
+        <Frame HorizontalOptions="Center" Grid.Row="1" VerticalOptions="Center" BorderColor="Black" Padding="0" Margin="20">
+            <!--Image-->
+            <Image x:Name="imgMain" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+        </Frame>
+
+        <!--Frame with buttons-->
+        <Frame BorderColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" BackgroundColor="White" Padding="10" Grid.Row="2">
+            <StackLayout>
+                <Button x:Name="btnPlay" Text="Play" HorizontalOptions="Center" Clicked="BtnPlay_Clicked" WidthRequest="300"/>
+                <Button x:Name="btnScores" Text="Scores" HorizontalOptions="Center" Clicked="BtnScores_Clicked" WidthRequest="300"/>
+            </StackLayout>
+        </Frame>
+
+    </Grid>
+
+</ContentPage>
